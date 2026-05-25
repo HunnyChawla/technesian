@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, LayoutDashboard, Users, Activity, FileText, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { BookDemoModal } from "@/components/BookDemoModal";
 
 export default function Home() {
   return (
@@ -58,11 +59,11 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link href="mailto:technesian.cura@gmail.com">
+            <BookDemoModal>
               <Button size="lg" className="bg-primary hover:bg-primary-strong text-white rounded-full px-8 h-14 text-lg shadow-lg shadow-primary/25">
                 Book a Free Demo <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-            </Link>
+            </BookDemoModal>
             <Link href="#features">
               <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-lg border-primary/20 hover:bg-primary/5">
                 Explore Features
@@ -191,11 +192,11 @@ export default function Home() {
             <p className="text-xl text-primary-foreground/90 mb-10">
               Join the growing number of healthcare facilities relying on Cura to deliver better patient care.
             </p>
-            <Link href="mailto:technesian.cura@gmail.com">
+            <BookDemoModal>
               <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-slate-50 rounded-full px-10 h-14 text-lg shadow-xl">
                 Get Started Today
               </Button>
-            </Link>
+            </BookDemoModal>
           </motion.div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { BookDemoModal } from "@/components/BookDemoModal";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,11 +48,11 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link href="mailto:technesian.cura@gmail.com">
+          <BookDemoModal>
             <Button className="bg-primary hover:bg-primary-strong text-white font-medium rounded-full px-7 h-11 shadow-md shadow-primary/25 transition-all hover:shadow-lg hover:-translate-y-0.5">
               Book a Demo
             </Button>
-          </Link>
+          </BookDemoModal>
         </div>
       </div>
     </header>
