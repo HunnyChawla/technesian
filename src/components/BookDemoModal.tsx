@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -9,15 +9,13 @@ import {
 } from "@/components/ui/dialog";
 
 interface BookDemoModalProps {
-  children: ReactNode;
+  children: React.ReactElement;
 }
 
 export function BookDemoModal({ children }: BookDemoModalProps) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
+      <DialogTrigger render={children} />
       <DialogContent className="sm:max-w-[600px] h-[80vh] flex flex-col gap-0 p-0 overflow-hidden">
         <DialogHeader className="px-6 py-4 border-b">
           <DialogTitle>Book a Demo</DialogTitle>
