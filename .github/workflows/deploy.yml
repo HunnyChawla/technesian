@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           
       - name: Setup Pages
@@ -66,3 +66,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # The Pages queue has been slow to pick deployments up; wait 20
+          # minutes and tolerate more polling errors before giving up.
+          timeout: 1200000
+          error_count: 20
