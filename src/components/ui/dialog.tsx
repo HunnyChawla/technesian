@@ -12,7 +12,17 @@ function Dialog({ ...props }: DialogPrimitive.Root.Props) {
 }
 
 function DialogTrigger({ ...props }: DialogPrimitive.Trigger.Props) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />
+  // Only claim `data-slot` when we own the rendered element. A `render`
+  // element brings its own (Button sets "button"), and Base UI resolves the
+  // collision differently depending on whether the element was created in a
+  // Server or a Client Component — which surfaces as a hydration mismatch.
+  // Nothing styles either value, so deferring to the render element is safe.
+  return (
+    <DialogPrimitive.Trigger
+      {...(props.render ? {} : { "data-slot": "dialog-trigger" })}
+      {...props}
+    />
+  )
 }
 
 function DialogPortal({ ...props }: DialogPrimitive.Portal.Props) {

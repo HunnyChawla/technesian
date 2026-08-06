@@ -61,6 +61,9 @@ export function PricingPlans() {
       </div>
 
       {/* Plan cards */}
+      {/* Plan names are h3, and the page h1 is in the hero above — without
+          this the outline jumps h1 -> h3. */}
+      <h2 className="sr-only">Plans and pricing</h2>
       <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-3 lg:gap-5">
         {plans.map((plan, index) => {
           const price = yearly ? plan.yearly : plan.monthly;

@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
+import { SITE } from "@/lib/site";
+
 const productLinks = [
   { label: "Features", href: "/#features" },
   { label: "Pricing", href: "/pricing" },
@@ -23,7 +25,7 @@ export function Footer() {
           <div className="space-y-4 lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <Image
-                src="/cura-logo-v2.png"
+                src="/cura-mark.png"
                 alt=""
                 width={44}
                 height={44}
@@ -45,10 +47,10 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
-            <h3 className="mb-4 font-heading font-semibold text-white">
+          <nav aria-label="Product">
+            <h2 className="mb-4 font-heading font-semibold text-white">
               Product
-            </h3>
+            </h2>
             <ul className="space-y-3 text-sm">
               {productLinks.map((link) => (
                 <li key={link.href}>
@@ -61,12 +63,12 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h3 className="mb-4 font-heading font-semibold text-white">
+          <nav aria-label="Company">
+            <h2 className="mb-4 font-heading font-semibold text-white">
               Company
-            </h3>
+            </h2>
             <ul className="space-y-3 text-sm">
               {companyLinks.map((link) => (
                 <li key={link.href}>
@@ -79,40 +81,49 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           <div>
-            <h3 className="mb-4 font-heading font-semibold text-white">
+            <h2 className="mb-4 font-heading font-semibold text-white">
               Contact
-            </h3>
-            <ul className="space-y-3 text-sm text-slate-400">
-              <li className="flex items-start gap-3">
+            </h2>
+            {/*
+              This block is the site's NAP (name, address, phone). It must stay
+              byte-identical to the Google Business Profile listing and to the
+              LocalBusiness schema — Google matches the site to the listing by
+              comparing them. Edit src/lib/site.ts, not this markup.
+            */}
+            <address className="space-y-3 text-sm text-slate-400 not-italic">
+              <div className="flex items-start gap-3">
                 <Mail className="size-5 shrink-0 text-primary" />
                 <a
-                  href="mailto:contact@technesian.com"
+                  href={`mailto:${SITE.email}`}
                   className="break-all transition-colors hover:text-primary"
                 >
-                  contact@technesian.com
+                  {SITE.email}
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
+              </div>
+              <div className="flex items-start gap-3">
                 <Phone className="size-5 shrink-0 text-primary" />
                 <a
-                  href="tel:+919896853727"
+                  href={`tel:${SITE.phone}`}
                   className="transition-colors hover:text-primary"
                 >
-                  +91 98968 53727
+                  {SITE.phoneDisplay}
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
+              </div>
+              <div className="flex items-start gap-3">
                 <MapPin className="size-5 shrink-0 text-primary" />
-                <span>
-                  Technesian HQ
+                <span className="not-italic">
+                  {SITE.legalName}
                   <br />
-                  India
+                  {SITE.address.streetAddress}
+                  <br />
+                  {SITE.address.addressLocality}, {SITE.address.addressRegion}{" "}
+                  {SITE.address.postalCode}
                 </span>
-              </li>
-            </ul>
+              </div>
+            </address>
           </div>
         </div>
 

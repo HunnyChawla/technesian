@@ -269,9 +269,75 @@
   animation-delay: 4s;
 }
 
+/*
+ * Above-the-fold entrance animations.
+ *
+ * These exist so the hero does NOT depend on framer-motion. A motion.h1 is
+ * server-rendered as `style="opacity:0"`, and an element at opacity 0 is not
+ * painted — so LCP could not even start counting until the JS bundle
+ * downloaded, parsed and hydrated. CSS animations run at first paint instead.
+ *
+ * `.rise-lcp` is deliberately transform-only: a translated element IS painted,
+ * so it counts for LCP immediately. Use it on whatever the LCP element is
+ * (the h1). Everything else can afford to fade.
+ */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-lcp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.rise,
+.rise-lcp {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+.rise {
+  animation-name: rise;
+}
+
+.rise-lcp {
+  animation-name: rise-lcp;
+}
+
+.rise-delay-1 {
+  animation-delay: 0.08s;
+}
+.rise-delay-2 {
+  animation-delay: 0.16s;
+}
+.rise-delay-3 {
+  animation-delay: 0.24s;
+}
+.rise-delay-4 {
+  animation-delay: 0.32s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float {
     animation: none;
+  }
+  .rise,
+  .rise-lcp {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
   html {
     scroll-behavior: auto;

@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
 
+import { JsonLd } from "@/components/JsonLd";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  productSchema,
+} from "@/lib/schema";
+import { SITE, og, ogImage } from "@/lib/site";
 import { Badge } from "@/components/ui/badge";
 import { Section, SectionHeading } from "@/components/layout/Section";
 import { FeatureMatrix } from "@/components/pricing/FeatureMatrix";
@@ -8,20 +15,41 @@ import { PricingFaq } from "@/components/pricing/PricingFaq";
 import { PricingPlans } from "@/components/pricing/PricingPlans";
 import { CtaBand } from "@/components/sections/CtaBand";
 
+const ogTitle = "Cura pricing — plans for clinics, hospitals and eye hospitals";
+const ogDescription =
+  "Three plans covering OPD to analytics. Monthly or yearly, no lock-in, cloud hosting billed at actual cost.";
+
 export const metadata: Metadata = {
   title: "Pricing",
   description:
     "Cura hospital management pricing — Basic, Standard and Premium plans covering OPD, IPD, day care, eye hospital, lab, billing and analytics. Transparent monthly and yearly rates, cloud hosting billed separately.",
-  openGraph: {
-    title: "Cura pricing — plans for clinics, hospitals and eye hospitals",
-    description:
-      "Three plans covering OPD to analytics. Monthly or yearly, no lock-in, cloud hosting billed at actual cost.",
+  alternates: { canonical: "/pricing" },
+  // og() re-declares type/siteName/locale: a page-level openGraph object
+  // REPLACES the root one, it does not extend it.
+  openGraph: og({
+    title: ogTitle,
+    description: ogDescription,
+    url: `${SITE.url}/pricing`,
+  }),
+  // Same reason — without this, the card inherits the homepage's title.
+  twitter: {
+    card: "summary_large_image",
+    title: ogTitle,
+    description: ogDescription,
+    images: [ogImage.url],
   },
 };
 
 export default function PricingPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          productSchema(),
+          faqPageSchema(),
+          breadcrumbSchema([{ name: "Pricing", path: "/pricing" }]),
+        ]}
+      />
       {/* Hero + plans */}
       <section className="mesh relative overflow-hidden pt-32 pb-16 md:pt-44 md:pb-20">
         <div aria-hidden className="grid-lines absolute inset-0" />

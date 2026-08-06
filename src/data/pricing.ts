@@ -2,16 +2,20 @@ import type { Tier } from "./features";
 
 /*
  * ============================================================================
- *  PLACEHOLDER PRICING — REPLACE BEFORE LAUNCH
+ *  LIVE PRICING — this file is the only place rates are defined.
  * ----------------------------------------------------------------------------
- *  Every rupee figure and every limit below is a placeholder. Edit this file
- *  (and nothing else) to change what the pricing page shows.
+ *  Edit this file (and nothing else) to change what the pricing page shows.
  *
  *  `monthly` and `yearly` are independent figures — the yearly rate is not
  *  derived from the monthly one. The yearly incentive shown on the page comes
  *  from `yearlyOffer` below, not from the difference between the two.
  *
  *  All prices are quoted EXCLUSIVE of GST and of cloud hosting.
+ *
+ *  These figures are also published as Product/Offer structured data via
+ *  src/lib/schema.ts. Structured data that disagrees with the visible price
+ *  is a Google spam-policy violation, so any change here must ship together
+ *  with the page — never edit one without the other.
  * ============================================================================
  */
 

@@ -45,9 +45,12 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
           {tierLabel[feature.tier]}
         </Badge>
       </div>
-      <h3 className="font-heading text-lg font-bold text-ink">
+      {/* h4, not h3: the category label above these cards is the h3, so cards
+          are its children. Both at h3 flattened 4 categories and 17 modules
+          into one meaningless sibling list. */}
+      <h4 className="font-heading text-lg font-bold text-ink">
         {feature.title}
-      </h3>
+      </h4>
       <p className="mt-2 text-[0.95rem] leading-relaxed text-muted-foreground">
         {feature.long}
       </p>

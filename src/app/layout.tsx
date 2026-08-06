@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationSchema, webSiteSchema } from "@/lib/schema";
+import { SITE, description, og, ogImage, title } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,12 +18,8 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["500", "600", "700", "800"],
 });
 
-const title = "Cura by Technesian - Hospital Management System";
-const description =
-  "Cura is a complete hospital management system for OPD, IPD, day care, eye hospitals, lab, billing and analytics - with a live patient queue on TV, doctor and staff panels, and ABDM-ready records.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://technesian.com"),
+  metadataBase: new URL(SITE.url),
   title: {
     default: title,
     template: "%s | Cura by Technesian",
@@ -36,17 +35,32 @@ export const metadata: Metadata = {
     "hospital billing software",
     "ABDM ABHA integration",
   ],
-  openGraph: {
-    type: "website",
-    siteName: "Cura by Technesian",
-    title,
-    description,
-  },
+  // Note: metadata merges shallowly, so a page that sets `openGraph` replaces
+  // this whole object rather than extending it. Pages use the og() helper.
+  openGraph: og({ title, description, url: SITE.url }),
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: [ogImage.url],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      // Permits a large thumbnail and a full-length snippet in results.
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+// themeColor is not a `metadata` field in Next 16 — it lives here.
+export const viewport: Viewport = {
+  themeColor: "#0ea5e9",
 };
 
 export default function RootLayout({
@@ -56,16 +70,23 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${inter.variable} ${jakarta.variable} font-sans h-full antialiased`}
     >
-      <body
-        className="min-h-full flex flex-col overflow-x-hidden"
-        suppressHydrationWarning
-      >
+      <body className="min-h-full flex flex-col overflow-x-hidden">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:font-semibold focus:text-white"
+        >
+          Skip to content
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <Footer />
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={webSiteSchema()} />
       </body>
     </html>
   );
