@@ -8,8 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-inter);
+  --font-heading: var(--font-jakarta);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -29,12 +28,17 @@
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-deep: var(--primary-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -49,31 +53,40 @@
 }
 
 :root {
-  --background: #f5f8fb;
-  --foreground: #0f172a;
+  --background: #f6f9fc;
+  --foreground: #0b1729;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #0b1729;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover-foreground: #0b1729;
+
+  /* Brand */
   --primary: #0ea5e9;
   --primary-foreground: #ffffff;
   --primary-strong: #0284c7;
-  --secondary: #e8eff6;
-  --secondary-foreground: #0f172a;
-  --muted: #e8eff6;
-  --muted-foreground: #475569;
+  --primary-deep: #075985;
   --accent: #14b8a6;
   --accent-foreground: #ffffff;
+  --accent-strong: #0d9488;
+
+  /* Ink scale for headings and long-form copy */
+  --ink: #0b1729;
+  --ink-soft: #334155;
+
+  --secondary: #e8eff6;
+  --secondary-foreground: #0b1729;
+  --muted: #eef4f9;
+  --muted-foreground: #526581;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e2e8f0;
-  --input: #e2e8f0;
+  --border: #e3ebf2;
+  --input: #e3ebf2;
   --ring: #0ea5e9;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -82,35 +95,38 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
-  --shadow: 0 12px 40px rgba(12, 74, 110, 0.08);
+
+  /* Elevation */
+  --shadow-soft: 0 1px 2px rgba(11, 23, 41, 0.04), 0 8px 24px rgba(12, 74, 110, 0.06);
+  --shadow-lift: 0 2px 4px rgba(11, 23, 41, 0.04), 0 18px 44px rgba(12, 74, 110, 0.1);
+  --shadow-pop: 0 4px 8px rgba(11, 23, 41, 0.05), 0 32px 64px rgba(12, 74, 110, 0.16);
+  --shadow: var(--shadow-soft);
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f5f8fb;
-  --card: #1e293b;
-  --card-foreground: #f5f8fb;
-  --popover: #1e293b;
-  --popover-foreground: #f5f8fb;
-  --primary: #0ea5e9;
-  --primary-foreground: #ffffff;
-  --primary-strong: #0284c7;
-  --secondary: #334155;
-  --secondary-foreground: #f5f8fb;
-  --muted: #334155;
+  --background: #071120;
+  --foreground: #eef4f9;
+  --card: #0f1e33;
+  --card-foreground: #eef4f9;
+  --popover: #0f1e33;
+  --popover-foreground: #eef4f9;
+  --primary: #38bdf8;
+  --primary-foreground: #04121f;
+  --primary-strong: #0ea5e9;
+  --primary-deep: #7dd3fc;
+  --accent: #2dd4bf;
+  --accent-foreground: #04121f;
+  --accent-strong: #14b8a6;
+  --ink: #eef4f9;
+  --ink-soft: #cbd5e1;
+  --secondary: #1c2f4a;
+  --secondary-foreground: #eef4f9;
+  --muted: #16273f;
   --muted-foreground: #94a3b8;
-  --accent: #14b8a6;
-  --accent-foreground: #ffffff;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #334155;
-  --input: #334155;
-  --ring: #0ea5e9;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --border: #1f3350;
+  --input: #1f3350;
+  --ring: #38bdf8;
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -127,40 +143,122 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    /* Fixed navbar height so #anchor targets are not hidden under it. */
+    scroll-padding-top: 6rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading tracking-tight text-balance;
   }
 }
 
+@layer utilities {
+  /* Consistent page gutter — replaces the repeated `container mx-auto px-4`. */
+  .shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--primary-strong) 0%,
+      var(--primary) 42%,
+      var(--accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Frosted surface used by cards and the navbar. */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(14, 165, 233, 0.15);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(14, 165, 233, 0.12);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
 }
 
 .dark .glass {
-  background: rgba(30, 41, 59, 0.7);
-  border: 1px solid rgba(14, 165, 233, 0.15);
+  background: rgba(15, 30, 51, 0.72);
+  border: 1px solid rgba(56, 189, 248, 0.14);
 }
 
-/* Animations */
-@keyframes blob {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
+/*
+ * Ambient background washes. `mesh` replaces the old blurred-blob trio:
+ * three soft radial stops painted straight into the background, so there is
+ * no extra DOM, no filter cost, and no animation jank on mobile.
+ */
+.mesh {
+  background-image:
+    radial-gradient(56rem 32rem at 12% -8%, rgba(14, 165, 233, 0.16), transparent 60%),
+    radial-gradient(44rem 28rem at 92% 4%, rgba(20, 184, 166, 0.14), transparent 62%),
+    radial-gradient(40rem 30rem at 50% 108%, rgba(2, 132, 199, 0.1), transparent 64%);
+}
+
+.mesh-soft {
+  background-image:
+    radial-gradient(50rem 26rem at 88% 0%, rgba(14, 165, 233, 0.1), transparent 62%),
+    radial-gradient(40rem 24rem at 4% 96%, rgba(20, 184, 166, 0.09), transparent 62%);
+}
+
+/* Faint blueprint grid, masked to fade out at the edges. */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(12, 74, 110, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 74, 110, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 35%, #000 20%, transparent 100%);
+  mask-image: radial-gradient(70% 60% at 50% 35%, #000 20%, transparent 100%);
+}
+
+.dark .grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(148, 197, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 197, 235, 0.06) 1px, transparent 1px);
+}
+
+/* Gradient hairline used to separate full-bleed bands. */
+.rule-fade {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(14, 165, 233, 0.28),
+    transparent
+  );
+}
+
+/* Slow drift for decorative accents. Disabled under reduced-motion. */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
   }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
+  50% {
+    transform: translate3d(0, -14px, 0);
   }
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
+.animate-float {
+  animation: float-slow 8s ease-in-out infinite;
 }
 
 .animation-delay-2000 {
@@ -169,4 +267,13 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

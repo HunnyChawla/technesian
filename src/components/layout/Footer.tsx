@@ -1,69 +1,124 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+
+const productLinks = [
+  { label: "Features", href: "/#features" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Eye Hospital Suite", href: "/#eye-hospital" },
+  { label: "Live Queue & TV Display", href: "/#queue" },
+];
+
+const companyLinks = [
+  { label: "About Technesian", href: "/#about" },
+  { label: "Why Cura", href: "/#benefits" },
+  { label: "Pricing FAQ", href: "/pricing#faq" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300 py-12 md:py-16">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-1 space-y-4">
-            <Image
-              src="/cura-logo-v2.png"
-              alt="Cura Logo"
-              width={140}
-              height={48}
-              className="brightness-0 invert opacity-90"
-            />
-            <p className="text-sm mt-4 text-slate-400">
-              Revolutionizing hospital management with powerful, intuitive software solutions tailored for healthcare professionals.
+    <footer className="bg-[#071120] py-14 text-slate-300 md:py-16">
+      <div className="shell">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-4 lg:col-span-1">
+            <div className="flex items-center gap-2.5">
+              <Image
+                src="/cura-logo-v2.png"
+                alt=""
+                width={44}
+                height={44}
+                className="size-11 shrink-0 object-contain opacity-95 brightness-0 invert"
+              />
+              <span className="flex flex-col leading-none">
+                <span className="font-heading text-xl font-extrabold tracking-tight text-white">
+                  Cura
+                </span>
+                <span className="mt-0.5 text-[0.65rem] font-medium tracking-[0.14em] text-slate-400 uppercase">
+                  by Technesian
+                </span>
+              </span>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-slate-400">
+              A complete hospital management system — OPD to discharge, lab to
+              billing — built in India for hospitals that want their day to run
+              on one screen.
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Product</h3>
+            <h3 className="mb-4 font-heading font-semibold text-white">
+              Product
+            </h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#features" className="hover:text-primary transition-colors">Features</Link></li>
-              <li><Link href="#benefits" className="hover:text-primary transition-colors">Benefits</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Security</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Updates</Link></li>
+              {productLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-400 transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Company</h3>
+            <h3 className="mb-4 font-heading font-semibold text-white">
+              Company
+            </h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#about" className="hover:text-primary transition-colors">About Technesian</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              {companyLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-400 transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm">
+            <h3 className="mb-4 font-heading font-semibold text-white">
+              Contact
+            </h3>
+            <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:technesian.cura@gmail.com" className="hover:text-primary transition-colors">
-                  technesian.cura@gmail.com
+                <Mail className="size-5 shrink-0 text-primary" />
+                <a
+                  href="mailto:contact@technesian.com"
+                  className="break-all transition-colors hover:text-primary"
+                >
+                  contact@technesian.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>+91 9896853727</span>
+                <Phone className="size-5 shrink-0 text-primary" />
+                <a
+                  href="tel:+919896853727"
+                  className="transition-colors hover:text-primary"
+                >
+                  +91 98968 53727
+                </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span>Technesian HQ<br />India</span>
+                <MapPin className="size-5 shrink-0 text-primary" />
+                <span>
+                  Technesian HQ
+                  <br />
+                  India
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500">
-          <p>© {new Date().getFullYear()} Technesian. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Built by Technesian</p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-slate-800 pt-8 text-sm text-slate-500 md:flex-row">
+          <p>&copy; {new Date().getFullYear()} Technesian. All rights reserved.</p>
+          <p>Built by Technesian</p>
         </div>
       </div>
     </footer>
