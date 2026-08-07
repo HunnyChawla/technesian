@@ -22,7 +22,7 @@ const ogDescription =
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Cura hospital management pricing — Basic, Standard and Premium plans covering OPD, IPD, day care, eye hospital, lab, billing and analytics. Transparent monthly and yearly rates, cloud hosting billed separately.",
+    "Cura pricing — Basic, Standard and Premium plans covering OPD, IPD, day care, eye hospital, lab and billing. Monthly or yearly, no lock-in.",
   alternates: { canonical: "/pricing" },
   // og() re-declares type/siteName/locale: a page-level openGraph object
   // REPLACES the root one, it does not extend it.

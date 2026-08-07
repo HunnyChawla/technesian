@@ -39,8 +39,12 @@ export const SITE = {
 
 export const title = "Cura by Technesian - Hospital Management System";
 
+/**
+ * Kept under ~155 characters: Google truncates past roughly that, and a
+ * description that ends mid-sentence in the SERP reads as neglected.
+ */
 export const description =
-  "Cura is a complete hospital management system for OPD, IPD, day care, eye hospitals, lab, billing and analytics - with a live patient queue on TV, doctor and staff panels, and ABDM-ready records.";
+  "A complete hospital management system for OPD, IPD, day care, eye hospitals, lab and billing — with a live patient queue on TV and ABDM-ready records.";
 
 /** Absolute URL for a site-relative path. Schema.org requires absolute URLs. */
 export const abs = (path: string) => new URL(path, SITE.url).toString();

@@ -50,7 +50,13 @@ jobs:
         
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        
+
+      # Asserts the SEO invariants against the real emitted HTML. Fails the
+      # deploy rather than shipping a regression — a missing canonical or a
+      # collapsed FAQ panel is invisible until rankings have already dropped.
+      - name: Verify SEO output
+        run: npm run verify:seo
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
