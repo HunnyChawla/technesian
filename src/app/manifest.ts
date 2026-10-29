@@ -4,8 +4,8 @@ import { SITE, description } from "@/lib/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Cura by Technesian — Hospital Management System",
-    short_name: SITE.productName,
+    name: "Technesian — Cura Hospital Management System",
+    short_name: SITE.name,
     description,
     start_url: "/",
     display: "standalone",

@@ -115,25 +115,26 @@ export function Navbar() {
         {/* The logo asset is a square mark (500x500), so it is sized as an
             icon and paired with a wordmark rather than stretched to a bar. */}
         <Link href="/" className="group flex items-center gap-2.5">
-          {/*
-            cura-mark.png is a 96px source for a 44px slot. The 500px original
-            was 208 KB, and `priority` preloaded all of it at highest priority
-            — competing with the CSS and fonts that actually gate LCP, for a
-            decorative mark. Both are gone.
-          */}
           <Image
-            src="/cura-mark.png"
-            alt=""
+            src="/technesian-mark.png"
+            alt="Technesian"
             width={44}
             height={44}
             className="size-10 shrink-0 object-contain transition-transform duration-300 group-hover:scale-105 md:size-11"
           />
           <span className="flex flex-col leading-none">
             <span className="font-heading text-xl font-extrabold tracking-tight text-ink">
-              Cura
+              Technesian
             </span>
-            <span className="mt-0.5 text-[0.65rem] font-medium tracking-[0.14em] text-muted-foreground uppercase">
-              by Technesian
+            <span className="mt-0.5 flex items-center gap-1 text-[0.65rem] font-semibold tracking-[0.12em] text-primary-strong uppercase">
+              <Image
+                src="/cura-mark.png"
+                alt=""
+                width={12}
+                height={12}
+                className="size-3 shrink-0 object-contain"
+              />
+              Cura HMS
             </span>
           </span>
         </Link>

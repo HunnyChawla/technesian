@@ -9,20 +9,62 @@
 
 export const SITE = {
   url: "https://technesian.com",
+  calendlyUrl: "https://calendly.com/technesian/30min",
   /** Brand as shown to people. */
-  name: "Cura by Technesian",
+  name: "Technesian",
   productName: "Cura",
   company: "Technesian",
-  legalName: "Technesian Software Solutions",
+  legalName: "Technesian Software Solutions LLP",
   email: "contact@technesian.com",
   /** E.164, for tel: links and schema. */
   phone: "+919896853727",
   /** Human-readable, for display. */
   phoneDisplay: "+91 98968 53727",
+  /** WhatsApp direct chat details */
+  whatsapp: {
+    primary: {
+      phone: "+919896853727",
+      display: "+91 98968 53727",
+      url: "https://wa.me/919896853727",
+    },
+    secondary: {
+      phone: "+917404448154",
+      display: "+91 74044 48154",
+      url: "https://wa.me/917404448154",
+    },
+  },
+  /** Official company social media handles */
+  social: {
+    linkedin: "https://www.linkedin.com/company/technesian",
+    instagram: "https://www.instagram.com/technesianofficial/",
+    facebook: "https://www.facebook.com/people/Technesian/61595587583066/",
+    youtube: "https://www.youtube.com/@Technesianofficial",
+    x: "https://x.com/_technesian",
+    google: "https://share.google/xair0hIM84kmOxb28",
+  },
+  /** Executive leadership / founders */
+  founders: [
+    {
+      name: "Sapna Bhatia",
+      role: "Co-Founder & CEO",
+      linkedin: "https://www.linkedin.com/in/bhatiasapna/",
+      initials: "SB",
+      slug: "sapna-bhatia",
+      image: "/founders/sapna-bhatia.png",
+    },
+    {
+      name: "Anu Chawla",
+      role: "Co-Founder & CTO",
+      linkedin: "https://www.linkedin.com/in/chawla-anu/",
+      initials: "AC",
+      slug: "anu-chawla",
+      image: "/founders/anu-chawla.png",
+    },
+  ],
   locale: "en_IN",
   /** Must stay identical to the Google Business Profile listing. */
   address: {
-    streetAddress: "39, Prakash Nagar, Tehsil Camp, Near Fatehpuri Chowk",
+    streetAddress: "32, Behind Nagpal, New Friends Colony",
     addressLocality: "Panipat",
     addressRegion: "Haryana",
     postalCode: "132103",
@@ -34,10 +76,17 @@ export const SITE = {
    * an empty array is deliberately omitted from the schema rather than
    * emitted, since `sameAs: []` tells Google nothing.
    */
-  sameAs: [] as string[],
+  sameAs: [
+    "https://www.linkedin.com/company/technesian",
+    "https://www.instagram.com/technesianofficial/",
+    "https://www.facebook.com/people/Technesian/61595587583066/",
+    "https://www.youtube.com/@Technesianofficial",
+    "https://x.com/_technesian",
+    "https://share.google/xair0hIM84kmOxb28",
+  ],
 } as const;
 
-export const title = "Cura by Technesian - Hospital Management System";
+export const title = "Technesian - Cura Hospital Management System";
 
 /**
  * Kept under ~155 characters: Google truncates past roughly that, and a
@@ -59,7 +108,7 @@ export const ogImage = {
   url: "/og.png",
   width: 1200,
   height: 630,
-  alt: "Cura by Technesian — hospital management system for Indian hospitals",
+  alt: "Technesian — hospital management system for Indian hospitals",
 };
 
 /**

@@ -3,6 +3,15 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import { SITE } from "@/lib/site";
+import {
+  FacebookIcon,
+  GoogleIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  WhatsAppIcon,
+  XIcon,
+  YouTubeIcon,
+} from "@/components/SocialIcons";
 
 const productLinks = [
   { label: "Features", href: "/#features" },
@@ -25,26 +34,94 @@ export function Footer() {
           <div className="space-y-4 lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <Image
-                src="/cura-mark.png"
-                alt=""
+                src="/technesian-mark.png"
+                alt="Technesian"
                 width={44}
                 height={44}
-                className="size-11 shrink-0 object-contain opacity-95 brightness-0 invert"
+                className="size-11 shrink-0 object-contain"
               />
               <span className="flex flex-col leading-none">
                 <span className="font-heading text-xl font-extrabold tracking-tight text-white">
-                  Cura
+                  Technesian
                 </span>
-                <span className="mt-0.5 text-[0.65rem] font-medium tracking-[0.14em] text-slate-400 uppercase">
-                  by Technesian
+                <span className="mt-0.5 flex items-center gap-1 text-[0.65rem] font-semibold tracking-[0.12em] text-cyan-400 uppercase">
+                  <Image
+                    src="/cura-mark.png"
+                    alt=""
+                    width={12}
+                    height={12}
+                    className="size-3 shrink-0 object-contain"
+                  />
+                  Cura HMS
                 </span>
               </span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              A complete hospital management system — OPD to discharge, lab to
-              billing — built in India for hospitals that want their day to run
-              on one screen.
+              Cura is our complete hospital management system — OPD to discharge,
+              lab to billing — built by Technesian for hospitals that want their
+              day to run on one screen.
             </p>
+            <div className="pt-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Follow us
+              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <a
+                  href={SITE.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Technesian on LinkedIn"
+                  className="flex size-8 items-center justify-center rounded-lg bg-slate-800 text-slate-300 transition-all hover:bg-[#0077b5] hover:text-white hover:-translate-y-0.5"
+                >
+                  <LinkedInIcon className="size-4" />
+                </a>
+                <a
+                  href={SITE.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Technesian on Instagram"
+                  className="flex size-8 items-center justify-center rounded-lg bg-slate-800 text-slate-300 transition-all hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white hover:-translate-y-0.5"
+                >
+                  <InstagramIcon className="size-4" />
+                </a>
+                <a
+                  href={SITE.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Technesian on Facebook"
+                  className="flex size-8 items-center justify-center rounded-lg bg-slate-800 text-slate-300 transition-all hover:bg-[#1877f2] hover:text-white hover:-translate-y-0.5"
+                >
+                  <FacebookIcon className="size-4" />
+                </a>
+                <a
+                  href={SITE.social.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Technesian on YouTube"
+                  className="flex size-8 items-center justify-center rounded-lg bg-slate-800 text-slate-300 transition-all hover:bg-[#ff0000] hover:text-white hover:-translate-y-0.5"
+                >
+                  <YouTubeIcon className="size-4" />
+                </a>
+                <a
+                  href={SITE.social.x}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Technesian on X"
+                  className="flex size-8 items-center justify-center rounded-lg bg-slate-800 text-slate-300 transition-all hover:bg-black hover:text-white hover:-translate-y-0.5"
+                >
+                  <XIcon className="size-3.5" />
+                </a>
+                <a
+                  href={SITE.social.google}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Technesian on Google"
+                  className="flex size-8 items-center justify-center rounded-lg bg-slate-800 text-slate-300 transition-all hover:bg-white hover:text-[#4285f4] hover:-translate-y-0.5"
+                >
+                  <GoogleIcon className="size-4" />
+                </a>
+              </div>
+            </div>
           </div>
 
           <nav aria-label="Product">
@@ -122,6 +199,33 @@ export function Footer() {
                   {SITE.address.addressLocality}, {SITE.address.addressRegion}{" "}
                   {SITE.address.postalCode}
                 </span>
+              </div>
+              <div className="flex items-start gap-3 pt-1">
+                <WhatsAppIcon className="size-5 shrink-0 text-[#25d366]" />
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                    WhatsApp Chat
+                  </span>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                    <a
+                      href={SITE.whatsapp.primary.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-slate-300 transition-colors hover:text-[#25d366]"
+                    >
+                      {SITE.whatsapp.primary.display}
+                    </a>
+                    <span className="text-slate-600">•</span>
+                    <a
+                      href={SITE.whatsapp.secondary.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-slate-300 transition-colors hover:text-[#25d366]"
+                    >
+                      {SITE.whatsapp.secondary.display}
+                    </a>
+                  </div>
+                </div>
               </div>
             </address>
           </div>

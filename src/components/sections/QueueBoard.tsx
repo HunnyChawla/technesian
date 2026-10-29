@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Monitor } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -24,14 +25,28 @@ export function QueueBoard({ className }: { className?: string }) {
       )}
     >
       {/* Window chrome */}
-      <div className="flex items-center gap-2 border-b border-border bg-muted/70 px-5 py-3.5">
-        <span className="size-2.5 rounded-full bg-red-400/70" />
-        <span className="size-2.5 rounded-full bg-amber-400/70" />
-        <span className="size-2.5 rounded-full bg-emerald-400/70" />
-        <span className="ml-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
-          <Monitor className="size-3.5" />
-          Waiting area display
-        </span>
+      <div className="flex items-center justify-between border-b border-border bg-muted/70 px-5 py-3">
+        <div className="flex items-center gap-2">
+          <span className="size-2.5 rounded-full bg-red-400/70" />
+          <span className="size-2.5 rounded-full bg-amber-400/70" />
+          <span className="size-2.5 rounded-full bg-emerald-400/70" />
+          <span className="ml-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+            <Monitor className="size-3.5" />
+            Waiting area display
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 rounded-md border border-border/80 bg-background/80 px-2 py-0.5 shadow-2xs">
+          <Image
+            src="/cura-mark.png"
+            alt="Cura"
+            width={14}
+            height={14}
+            className="size-3.5 object-contain"
+          />
+          <span className="font-heading text-[0.7rem] font-bold text-ink">
+            Cura HMS
+          </span>
+        </div>
       </div>
 
       <div className="p-5 md:p-6">

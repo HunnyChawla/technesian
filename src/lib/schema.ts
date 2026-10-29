@@ -48,6 +48,12 @@ export function organizationSchema() {
       areaServed: "IN",
       availableLanguage: ["en", "hi"],
     },
+    founder: SITE.founders.map((f) => ({
+      "@type": "Person",
+      name: f.name,
+      jobTitle: f.role,
+      sameAs: f.linkedin,
+    })),
     // Omitted entirely when empty — `sameAs: []` asserts nothing.
     ...(SITE.sameAs.length > 0 ? { sameAs: SITE.sameAs } : {}),
   };

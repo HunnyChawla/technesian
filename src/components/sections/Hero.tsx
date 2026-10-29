@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -32,10 +33,20 @@ export function Hero() {
             animate at first paint instead. See globals.css.
           */}
           <div className="flex flex-col items-start gap-6 text-center lg:text-left">
-            <div className="rise mx-auto lg:mx-0">
-              <Badge variant="soft">
-                <Sparkles />
-                Built in India, for Indian hospitals
+            <div className="rise mx-auto flex flex-wrap items-center justify-center gap-2.5 lg:mx-0 lg:justify-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary-strong shadow-2xs">
+                <Image
+                  src="/cura-mark.png"
+                  alt="Cura"
+                  width={18}
+                  height={18}
+                  className="size-4 object-contain"
+                />
+                <span>Cura Hospital Management System</span>
+              </span>
+              <Badge variant="soft" className="hidden sm:inline-flex">
+                <Sparkles className="size-3.5" />
+                Built in India
               </Badge>
             </div>
 

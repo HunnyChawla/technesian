@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema, webSiteSchema } from "@/lib/schema";
 import { SITE, description, og, ogImage, title } from "@/lib/site";
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default: title,
-    template: "%s | Cura by Technesian",
+    template: "%s | Technesian",
   },
   description,
   keywords: [
@@ -35,6 +36,15 @@ export const metadata: Metadata = {
     "hospital billing software",
     "ABDM ABHA integration",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   // Note: metadata merges shallowly, so a page that sets `openGraph` replaces
   // this whole object rather than extending it. Pages use the og() helper.
   openGraph: og({ title, description, url: SITE.url }),
@@ -74,6 +84,7 @@ export default function RootLayout({
       className={`${inter.variable} ${jakarta.variable} font-sans h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
+        <CalendlyEmbed />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:font-semibold focus:text-white"

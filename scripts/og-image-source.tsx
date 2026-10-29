@@ -16,7 +16,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Cura by Technesian — hospital management system for Indian hospitals";
+  "Technesian — Cura Hospital Management System";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-static";
@@ -48,7 +48,7 @@ export default function Image() {
             fontWeight: 700,
           }}
         >
-          Cura by Technesian
+          Technesian · Cura HMS
         </div>
         <div
           style={{
